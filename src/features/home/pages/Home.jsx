@@ -3,6 +3,8 @@ import { fetchTrendingMovies } from "../homeAPI.js";
 import Navbar from "../../../components/Navbar.jsx";
 import HeroBanner from "../components/HeroBanner.jsx";
 import MovieRow from "../components/MovieRow.jsx";
+import RecentlyWatched from "../components/RecentlyWatched.jsx";
+import FeaturedSection from "../components/FeaturedSection.jsx";
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
@@ -20,6 +22,8 @@ const Home = () => {
       <Navbar />
       <HeroBanner />
       <MovieRow title="Trending Movies" movies={movies} />
+      <RecentlyWatched movies={movies} />
+      <FeaturedSection movies={movies} />
     </div>
   );
 };

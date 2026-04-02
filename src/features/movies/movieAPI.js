@@ -19,3 +19,23 @@ export const fetchMovieVideos = async (id) => {
 		return [];
 	}
 };
+
+export const fetchMovieCredits = async (id) => {
+	try {
+		const response = await tmdb.get(`/movie/${id}/credits`);
+		return response.data.cast;
+	} catch (error) {
+		console.error("Credits error:", error);
+		return [];
+	}
+};
+
+export const fetchSimilarMovies = async (id) => {
+	try {
+		const response = await tmdb.get(`/movie/${id}/similar`);
+		return response.data.results;
+	} catch (error) {
+		console.error("Similar movies error:", error);
+		return [];
+	}
+};

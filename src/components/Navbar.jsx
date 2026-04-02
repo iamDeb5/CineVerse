@@ -64,7 +64,10 @@ function Navbar() {
 				<div className='flex items-center gap-4'>
 					<div className='relative flex items-center'>
 						{/* Search Icon */}
-						<button onClick={() => setShowSearch(!showSearch)}>
+						<button
+							className='cursor-pointer'
+							onClick={() => setShowSearch(!showSearch)}
+						>
 							<Search size={20} />
 						</button>
 
@@ -89,7 +92,14 @@ function Navbar() {
 								{results.slice(0, 6).map((item) => (
 									<div
 										onClick={() => {
-											navigate(`/movie/${item.id}`);
+											if (
+												item.media_type === "movie" ||
+												item.media_type === "tv"
+											) {
+												navigate(
+													`/${item.media_type}/${item.id}`,
+												);
+											}
 											setShowSearch(false);
 											setQuery("");
 										}}
